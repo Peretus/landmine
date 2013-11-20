@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>Javascript Bare</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+	<h1 style="text-align: center">You are <span id="moves_from">an unknown</span> distance from the landmine!</h1>
+
+<script type="text/javascript">
+  
+//   var addFive = function(number) {
+//   	return number+5;
+//   };
+
+
+
+
+// console.log("addFive(3) should be 8:", addFive(3));
+// console.log("addFive(6) should be 11:", addFive(6));
+
+// var triplePrompt = function() {
+// 	var first = prompt("Enter a string: ");
+// 	var second = prompt("Enter a second string: ");
+// 	var third = prompt("And a last one: ");
+// 	alert(third + second + first);
+// };
+
+// triplePrompt();
+
+var password = "23";
+var counter = 3
+var landmine = Math.floor(Math.random()*100);
+console.log(landmine);
+
+var pwCheck = function() {
+	var answer = prompt("What is the password?");
+	if (answer === password) {
+		alert("welcome to sesame st.");
+	} else {
+		counter--
+		if (counter === 0 || counter == landmine) {
+			alert("It's all over for you.");
+		} else {
+		alert("Access denied, sucker. you have " + counter + "tries left.");
+		$("#moves_from").text(Math.abs(landmine-answer));
+		pwCheck();
+		}
+	}
+};
+
+pwCheck();
+
+
+
+
+</script>
+
+</body>
+</html>
